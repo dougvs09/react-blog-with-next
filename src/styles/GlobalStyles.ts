@@ -8,8 +8,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html, body, #root {
-    background: #fff;
-    color: #000;
+    background: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.fontColor};
     font: normal 24px 'Source Sans Pro', sans-serif;
   }
 
