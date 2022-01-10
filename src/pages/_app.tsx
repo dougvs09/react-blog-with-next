@@ -1,17 +1,15 @@
 import type { AppProps } from 'next/app'
 
-import { ThemeProvider } from 'styled-components'
-
+import SwitchThemeContextProvider from '../contexts/SwitchThemeContext'
 import GlobalStyles from '../styles/GlobalStyles'
-import dark from '../styles/themes/dark'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <ThemeProvider theme={dark}>
+      <SwitchThemeContextProvider>
         <GlobalStyles />
         <Component {...pageProps} />
-      </ThemeProvider>
+      </SwitchThemeContextProvider>
     </>
   )
 }
