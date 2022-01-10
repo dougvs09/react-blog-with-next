@@ -9,8 +9,10 @@ import light from '../styles/themes/light'
 type Theme = {
   title: string
   colors: {
+    primary: string
     backgroundDetails: string
     fontColor: string
+    gray: string
   }
 }
 
@@ -21,11 +23,12 @@ type SwitchThemeContextType = {
 
 export const SwitchThemeContext = createContext({} as SwitchThemeContextType)
 
-const SwitchThemeContextProvider: React.FC = (children) => {
+// eslint-disable-next-line react/prop-types
+const SwitchThemeContextProvider: React.FC = ({ children }) => {
   const [theme, setTheme] = usePersistedTheme('prefferenceTheme', dark)
 
   const toggleTheme = () => {
-    setTheme(theme.title === 'light' ? dark : light)
+    setTheme(theme.title === 'dark' ? light : dark)
   }
 
   return (

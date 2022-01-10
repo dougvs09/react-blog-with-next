@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react'
 
-const usePersistedTheme = (key: string, initialTheme: object) => {
-  const [state, setState] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const storageValue = localStorage.getItem(key)
-      if (storageValue) {
-        return JSON.parse(storageValue)
-      }
+const usePersistedTheme = (key: string, defaultTheme: any) => {
+  const [state, setState] = useState(defaultTheme)
+
+  useEffect(() => {
+    const storageValue = localStorage.getItem(key)
+
+    if (storageValue) {
+      setState(JSON.parse(storageValue))
     }
-    return initialTheme
-  })
+  }, [])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
