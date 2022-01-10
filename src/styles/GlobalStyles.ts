@@ -25,12 +25,6 @@ const GlobalStyles = createGlobalStyle`
     outline: 0;
     border: none;
   }
-
-  img {
-    max-width: 100%;
-    display: block;
-    object-fit: cover;
-  }
 `
 
 export default GlobalStyles
