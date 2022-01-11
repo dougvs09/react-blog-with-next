@@ -1,7 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Image from 'next/image'
 import Link from 'next/link'
+
+import tippy from 'tippy.js'
+import 'tippy.js/dist/tippy.css'
 
 import reactIcon from '../../../public/react.svg'
 import useTheme from '../../hooks/useTheme'
@@ -23,6 +26,10 @@ const Header: React.FC = () => {
   const { toggleTheme, theme } = useTheme()
   const [menu, setMenu] = useState(false)
 
+  useEffect(() => {
+    tippy('[data-tippy-content]')
+  }, [])
+
   const handleOpenMenu = () => {
     setMenu(true)
   }
@@ -40,12 +47,7 @@ const Header: React.FC = () => {
         <LogoMobile>
           <Link href="/">
             <a className="logo_mobile">
-              <Image
-                src={reactIcon}
-                alt="blog icon"
-                width="25px"
-                height="20px"
-              />
+              <Image src={reactIcon} alt="blog icon" width={25} height={30} />
               <p>Blog</p>
             </a>
           </Link>
@@ -64,8 +66,8 @@ const Header: React.FC = () => {
                   <Image
                     src={reactIcon}
                     alt="blog icon"
-                    width="30px"
-                    height="25px"
+                    width={30}
+                    height={25}
                   />
                   <p>Blog</p>
                 </a>
@@ -83,7 +85,11 @@ const Header: React.FC = () => {
             </li>
           </ul>
         </Navigation>
-        <SwitchThemeButton type="button" onClick={toggleTheme}>
+        <SwitchThemeButton
+          type="button"
+          onClick={toggleTheme}
+          data-tippy-content="Trocar tema"
+        >
           {theme.title === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
         </SwitchThemeButton>
       </Wrapper>
