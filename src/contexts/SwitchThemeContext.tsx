@@ -13,6 +13,7 @@ type Theme = {
     backgroundDetails: string
     fontColor: string
     gray: string
+    babyBlue: string
   }
 }
 

@@ -5,6 +5,7 @@ const light = {
     background: '#fff',
     fontColor: '#111',
     gray: '#333333',
+    babyBlue: '#473BF0',
   },
 }
 
