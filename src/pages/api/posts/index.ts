@@ -7,8 +7,9 @@ type PostTypes = {
   content: string
   title: string
   author: {
-    name: string
     id: string
+    name: string
+    avatar: string
   }
   image: string
   category: string
@@ -20,30 +21,31 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<PostTypes | unknown>
 ) {
-  const {
-    content,
-    category,
-    image,
-    title,
-    author: { name, id },
-  } = req.body
-
-  if (!content || !category || !image || !title || !name || !id) {
-    res.status(400).json({ error: 'Missing data' })
-    return
-  }
-
-  const currentDate = getDate()
-
-  const { db } = await connect()
-
   if (req.method === 'POST') {
+    const {
+      content,
+      category,
+      image,
+      title,
+      author: { id, name, avatar },
+    } = req.body
+
+    if (!content || !category || !image || !title || !name || !id) {
+      res.status(400).json({ error: 'Missing data' })
+      return
+    }
+
+    const currentDate = getDate()
+
+    const { db } = await connect()
+
     const data = {
       content,
       title,
       author: {
-        name,
         id,
+        name,
+        avatar,
       },
       image,
       category,
@@ -53,7 +55,13 @@ export default async function handler(
 
     await db.collection('posts').insertOne(data)
 
-    res.status(200).json(data)
+    res.status(201).json(data)
+  } else if (req.method === 'GET') {
+    const { db } = await connect()
+
+    const result = await db.collection('posts').find({}).toArray()
+
+    res.status(200).json(result)
   } else {
     res.status(404).json({ error: 'Request method not accepted' })
   }
