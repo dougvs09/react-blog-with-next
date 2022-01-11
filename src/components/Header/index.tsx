@@ -43,8 +43,8 @@ const Header: React.FC = () => {
               <Image
                 src={reactIcon}
                 alt="blog icon"
-                width="35px"
-                height="30px"
+                width="25px"
+                height="20px"
               />
               <p>Blog</p>
             </a>
@@ -64,8 +64,8 @@ const Header: React.FC = () => {
                   <Image
                     src={reactIcon}
                     alt="blog icon"
-                    width="35px"
-                    height="30px"
+                    width="30px"
+                    height="25px"
                   />
                   <p>Blog</p>
                 </a>

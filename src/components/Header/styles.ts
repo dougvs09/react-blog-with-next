@@ -43,7 +43,7 @@ export const LogoMobile = styled.div`
       p {
         font: 600 18px 'Poppins', sans-serif;
         text-transform: uppercase;
-        color: ${(props) => props.theme.colors.primary};
+        color: ${({ theme }) => theme.colors.primary};
 
         ::before {
           content: '';
@@ -51,7 +51,7 @@ export const LogoMobile = styled.div`
           width: 1px;
           height: 15px;
           margin-right: 5px;
-          background-color: ${(props) => props.theme.colors.gray};
+          background-color: ${({ theme }) => theme.colors.gray};
         }
         cursor: pointer;
       }
@@ -71,7 +71,7 @@ export const MobileCloseButton = styled.button`
 
     padding: 3px;
     border-radius: 50%;
-    border: 3px solid ${(props) => props.theme.colors.gray};
+    border: 3px solid ${({ theme }) => theme.colors.gray};
 
     cursor: pointer;
     background: transparent;
@@ -89,9 +89,14 @@ export const Navigation = styled.div`
     gap: 20px;
 
     li {
+      &:nth-child(2),
+      &:nth-child(3) {
+        padding-bottom: 8px;
+      }
+
       a {
         font: 500 16px 'Source Sans Pro', sans-serif;
-        color: ${(props) => props.theme.colors.gray};
+        color: ${({ theme }) => theme.colors.gray};
         cursor: pointer;
 
         &.logo {
@@ -102,7 +107,7 @@ export const Navigation = styled.div`
           p {
             font: 600 22px 'Poppins', sans-serif;
             text-transform: uppercase;
-            color: ${(props) => props.theme.colors.primary};
+            color: ${({ theme }) => theme.colors.primary};
 
             ::before {
               content: '';
@@ -110,7 +115,7 @@ export const Navigation = styled.div`
               width: 1px;
               height: 15px;
               margin-right: 5px;
-              background-color: ${(props) => props.theme.colors.gray};
+              background-color: ${({ theme }) => theme.colors.gray};
             }
             cursor: pointer;
           }
@@ -122,7 +127,7 @@ export const Navigation = styled.div`
             display: block;
             height: 2px;
             width: 0;
-            background-color: ${(props) => props.theme.colors.gray};
+            background-color: ${({ theme }) => theme.colors.gray};
 
             transition: 0.3s ease-in;
           }
@@ -167,8 +172,8 @@ export const Navigation = styled.div`
 
 export const SwitchThemeButton = styled.button`
   padding: 10px;
-  background: ${(props) =>
-    props.theme.title === 'dark' ? '#080808' : '#F3F3F3'};
+  background: ${({ theme }) =>
+    theme.title === 'dark' ? '#080808' : '#F3F3F3'};
   border-radius: 50%;
   cursor: pointer;
 `
@@ -187,11 +192,11 @@ export const LightModeIcon = styled(LightMode)`
 export const MenuIcon = styled(Menu)`
   width: 25px;
   height: 25px;
-  color: ${(props) => props.theme.colors.gray};
+  color: ${({ theme }) => theme.colors.gray};
 `
 
 export const CloseIcon = styled(Close)`
   width: 25px;
   height: 25px;
-  color: ${(props) => props.theme.colors.gray};
+  color: ${({ theme }) => theme.colors.gray};
 `
