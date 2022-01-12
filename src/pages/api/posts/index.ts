@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import getDate from '../../../utils/date'
+import getAllPosts from '../../../utils/getAllPosts'
 import connect from '../../../utils/mongodb'
 
 type PostTypes = {
@@ -57,9 +58,7 @@ export default async function handler(
 
     res.status(201).json(data)
   } else if (req.method === 'GET') {
-    const { db } = await connect()
-
-    const result = await db.collection('posts').find({}).toArray()
+    const result = await getAllPosts()
 
     res.status(200).json(result)
   } else {
