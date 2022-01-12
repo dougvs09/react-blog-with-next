@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios'
+import connect from './mongodb'
 
 type PostType = {
   _id: string
@@ -19,11 +19,14 @@ interface AllPostsTypes {
   allPostsData: PostType[]
 }
 
-const getAllPosts = async (): Promise<AxiosResponse<AllPostsTypes>> => {
-  const response = await axios.get(`http://localhost:3000/api/posts`)
-  const data = response.data
+const getAllPosts = async () => {
+  const { db } = await connect()
 
-  return data
+  const result = await db.collection('posts').find({}).toArray()
+  const stringifyResult = JSON.stringify(result)
+  const allPostsData = JSON.parse(stringifyResult)
+
+  return allPostsData
 }
 
 export default getAllPosts
