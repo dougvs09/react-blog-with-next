@@ -41,7 +41,7 @@ const PostsCards: React.FC<PostCardType> = ({
         <Link href={`http://localhost:3000/posts/${path}`}>
           <a></a>
         </Link>
-        <Image src={postPicture} width={370} height={220} />
+        <Image src={postPicture} width={370} height={220} loading="lazy" />
         <Highlight data-tippy-content="Em destque">
           {isHighlighted && (
             <Link href={`http://localhost:3000/posts/${path}`}>
