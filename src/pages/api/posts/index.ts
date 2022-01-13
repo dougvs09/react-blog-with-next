@@ -1,8 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+import connect from '../../../services/mongodb'
 import getDate from '../../../utils/date'
-import getAllPosts from '../../../utils/getAllPosts'
-import connect from '../../../utils/mongodb'
 
 type PostTypes = {
   content: string
@@ -57,10 +56,6 @@ export default async function handler(
     await db.collection('posts').insertOne(data)
 
     res.status(201).json(data)
-  } else if (req.method === 'GET') {
-    const result = await getAllPosts()
-
-    res.status(200).json(result)
   } else {
     res.status(404).json({ error: 'Request method not accepted' })
   }
