@@ -73,9 +73,9 @@ export const MobileCloseButton = styled.button`
   &.menuOpen {
     display: block;
     position: absolute;
-    z-index: 1000;
-    top: 15px;
-    right: 15px;
+    z-index: 1001;
+    top: 20px;
+    left: 240px;
 
     padding: 3px;
     border-radius: 50%;
@@ -159,11 +159,17 @@ export const Navigation = styled.div`
         flex-direction: column;
         gap: 5px;
 
-        width: 100%;
-        height: 100%;
-        position: fixed;
+        width: 300px;
+        height: 300px;
+
+        border-radius: 0 0 10px 0;
+
+        padding: 20px 10px;
+
+        position: absolute;
         top: 0;
         left: 0;
+        z-index: 1000;
         background-color: ${({ theme }) => theme.colors.background};
 
         li {
@@ -171,6 +177,10 @@ export const Navigation = styled.div`
 
           &:first-child {
             display: none;
+          }
+
+          a {
+            font: 500 20px 'Source Sans Pro', sans-serif;
           }
         }
       }
@@ -182,6 +192,18 @@ export const NavigationRight = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @media (max-width: 768px) {
+    display: none;
+
+    &.menuOpen {
+      display: flex;
+      gap: 20px;
+      position: absolute;
+      top: 200px;
+      z-index: 1001;
+    }
+  }
 `
 
 export const UserAvatar = styled.div`

@@ -49,7 +49,11 @@ const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <Wrapper>
-        <MobileMenuButton type="button" onClick={handleOpenMenu}>
+        <MobileMenuButton
+          type="button"
+          onClick={handleOpenMenu}
+          data-tippy-content="Menu"
+        >
           <MenuIcon />
         </MobileMenuButton>
         <LogoMobile>
@@ -93,7 +97,7 @@ const Header: React.FC = () => {
             </li>
           </ul>
         </Navigation>
-        <NavigationRight>
+        <NavigationRight className={menu ? 'menuOpen' : ''}>
           {!session ? (
             <LoginButton onClick={() => signIn('google')}>
               <LoginIcon />

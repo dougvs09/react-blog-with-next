@@ -6,7 +6,7 @@ export const ArticleContainer = styled.article`
   flex-direction: column;
   align-items: center;
 
-  width: 370px;
+  max-width: 370px;
 
   border-radius: 10px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
