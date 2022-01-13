@@ -40,7 +40,7 @@ const PostsCards: React.FC<PostCardType> = ({
   return (
     <ArticleContainer>
       <PostPicture>
-        <Link href={`http://localhost:3000/posts/${path}`}>
+        <Link href={`/posts/${path}`}>
           <a></a>
         </Link>
         <Image
@@ -53,7 +53,7 @@ const PostsCards: React.FC<PostCardType> = ({
         />
         <Highlight data-tippy-content="Em destque">
           {isHighlighted && (
-            <Link href={`http://localhost:3000/posts/${path}`}>
+            <Link href={`/posts/${path}`}>
               <a>
                 <StarIcon />
               </a>
@@ -62,10 +62,10 @@ const PostsCards: React.FC<PostCardType> = ({
         </Highlight>
       </PostPicture>
       <PostInformations>
-        <Link href={`http://localhost:3000/posts/${path}`}>
+        <Link href={`/posts/${path}`}>
           <a className="category">{category}</a>
         </Link>
-        <Link href={`http://localhost:3000/posts/${path}`}>
+        <Link href={`/posts/${path}`}>
           <a className="title_and_data">
             <div>
               <h2>{title}</h2>
