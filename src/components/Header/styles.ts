@@ -1,4 +1,12 @@
-import { LightMode, Menu, Close, DarkMode } from '@styled-icons/material'
+import {
+  LightMode,
+  Menu,
+  Close,
+  DarkMode,
+  Logout,
+  Login,
+} from '@styled-icons/material'
+import { shade } from 'polished'
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
@@ -170,6 +178,54 @@ export const Navigation = styled.div`
   }
 `
 
+export const NavigationRight = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`
+
+export const UserAvatar = styled.div`
+  img {
+    border-radius: 50%;
+  }
+`
+
+export const LoginButton = styled.button`
+  padding: 5px 20px;
+  font: 600 14px 'Poppins', sans-serif;
+  border-radius: 10px;
+  background: ${({ theme }) => theme.colors.primary};
+  color: #111;
+
+  cursor: pointer;
+
+  transition: 0.4s ease-in-out;
+
+  &:hover {
+    background: ${shade(0.1, '#00D8FF')};
+  }
+`
+
+export const LogoutButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 5px 20px;
+  font: 600 14px 'Poppins', sans-serif;
+  border-radius: 10px;
+  background: ${({ theme }) => theme.colors.primary};
+  color: #111;
+
+  cursor: pointer;
+
+  transition: 0.4s ease-in-out;
+
+  &:hover {
+    background: ${shade(0.1, '#00D8FF')};
+  }
+`
+
 export const SwitchThemeButton = styled.button`
   padding: 10px;
   background: ${({ theme }) =>
@@ -199,4 +255,16 @@ export const CloseIcon = styled(Close)`
   width: 25px;
   height: 25px;
   color: ${({ theme }) => theme.colors.gray};
+`
+
+export const LogoutIcon = styled(Logout)`
+  width: 20px;
+  height: 20px;
+  color: #111;
+`
+
+export const LoginIcon = styled(Login)`
+  width: 20px;
+  height: 20px;
+  color: #111;
 `

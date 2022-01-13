@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { useSession, signIn, signOut } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -20,11 +21,18 @@ import {
   LightModeIcon,
   DarkModeIcon,
   CloseIcon,
+  NavigationRight,
+  LoginButton,
+  UserAvatar,
+  LogoutIcon,
+  LogoutButton,
+  LoginIcon,
 } from './styles'
 
 const Header: React.FC = () => {
   const { toggleTheme, theme } = useTheme()
   const [menu, setMenu] = useState(false)
+  const { data: session } = useSession()
 
   useEffect(() => {
     tippy('[data-tippy-content]')
@@ -85,13 +93,36 @@ const Header: React.FC = () => {
             </li>
           </ul>
         </Navigation>
-        <SwitchThemeButton
-          type="button"
-          onClick={toggleTheme}
-          data-tippy-content="Trocar tema"
-        >
-          {theme.title === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
-        </SwitchThemeButton>
+        <NavigationRight>
+          {!session ? (
+            <LoginButton onClick={() => signIn('google')}>
+              <LoginIcon />
+              Fazer login
+            </LoginButton>
+          ) : (
+            <>
+              <LogoutButton onClick={() => signOut()}>
+                <LogoutIcon />
+                Logout
+              </LogoutButton>
+              <UserAvatar>
+                <Image
+                  src={session.user?.image ? session.user.image : ''}
+                  alt="user avatar"
+                  width={40}
+                  height={40}
+                />
+              </UserAvatar>
+            </>
+          )}
+          <SwitchThemeButton
+            type="button"
+            onClick={toggleTheme}
+            data-tippy-content="Trocar tema"
+          >
+            {theme.title === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
+          </SwitchThemeButton>
+        </NavigationRight>
       </Wrapper>
     </HeaderContainer>
   )
