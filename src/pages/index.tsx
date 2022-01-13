@@ -4,28 +4,26 @@ import { useRouter } from 'next/router'
 import Header from '../components/Header'
 import PostsCards from '../components/PostsCards'
 import { Main, PostsWrapper } from '../styles/HomeStyle'
-import getAllPosts from '../utils/getAllPosts'
+import { getAllPosts } from '../utils/getAllPosts'
 
 type PostType = {
-  _id: string
+  id: string
   content: string
   title: string
-  author: {
-    id: string
-    name: string
-    avatar: string
+  image: {
+    url: string
+    alt: string
   }
-  image: string
   category: string
-  createdAt: string
-  isHighlighted: boolean
+  created: string
+  ishighlighted: boolean
 }
 
 interface AllPostsTypes {
-  allPostsData: PostType[]
+  postsData: PostType[]
 }
 
-const Home: NextPage<AllPostsTypes> = ({ allPostsData }: AllPostsTypes) => {
+const Home: NextPage<AllPostsTypes> = ({ postsData }: AllPostsTypes) => {
   const router = useRouter()
 
   return (
@@ -37,15 +35,16 @@ const Home: NextPage<AllPostsTypes> = ({ allPostsData }: AllPostsTypes) => {
             <div>Loading...</div>
           ) : (
             <>
-              {allPostsData.map((data: PostType) => (
+              {postsData.map((data: PostType) => (
                 <PostsCards
-                  key={data._id}
-                  path={data._id}
-                  postPicture={data.image}
+                  key={data.id}
+                  path={data.id}
+                  postPicture={data.image.url}
+                  postPictureAlt={data.image.alt}
                   category={data.category}
                   title={data.title}
-                  createdAt={data.createdAt}
-                  isHighlighted={data.isHighlighted}
+                  createdAt={data.created}
+                  isHighlighted={data.ishighlighted}
                 />
               ))}
             </>
@@ -59,11 +58,11 @@ const Home: NextPage<AllPostsTypes> = ({ allPostsData }: AllPostsTypes) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = await getAllPosts()
+  const postsData = await getAllPosts()
 
   return {
     props: {
-      allPostsData,
+      postsData,
     },
     revalidate: 10,
   }
