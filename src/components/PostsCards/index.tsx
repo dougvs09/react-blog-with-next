@@ -20,7 +20,8 @@ type PostCardType = {
   category: string
   title: string
   createdAt: string
-  isHighlighted: boolean
+  isHighlighted?: boolean
+  postPictureAlt: string
 }
 
 const PostsCards: React.FC<PostCardType> = ({
@@ -30,6 +31,7 @@ const PostsCards: React.FC<PostCardType> = ({
   title,
   createdAt,
   isHighlighted,
+  postPictureAlt,
 }: PostCardType) => {
   useEffect(() => {
     tippy('[data-tippy-content]')
@@ -41,7 +43,14 @@ const PostsCards: React.FC<PostCardType> = ({
         <Link href={`http://localhost:3000/posts/${path}`}>
           <a></a>
         </Link>
-        <Image src={postPicture} width={370} height={220} loading="lazy" />
+        <Image
+          src={postPicture}
+          alt={postPictureAlt}
+          width={370}
+          height={220}
+          loading="lazy"
+          unoptimized
+        />
         <Highlight data-tippy-content="Em destque">
           {isHighlighted && (
             <Link href={`http://localhost:3000/posts/${path}`}>
