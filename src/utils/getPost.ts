@@ -1,14 +1,14 @@
 import { request } from '../services/datocms'
 
-export const getAllPosts = async () => {
+export const getPost = async (id: string | string[] | undefined) => {
   const data = await request({
     query: `query {
-      allPosts {
+        post (filter: {id: {eq: ${id}}}) {
 		    category
         content
         title
-        created
         id
+        created
         image {
           url
           alt
@@ -18,5 +18,5 @@ export const getAllPosts = async () => {
     }`,
   })
 
-  return data.allPosts
+  return data.post
 }
