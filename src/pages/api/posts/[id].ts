@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { ObjectId } from 'mongodb'
 
-import connect from '../../../utils/mongodb'
+import connect from '../../../services/mongodb'
 
 export default async function handler(
   req: NextApiRequest,
