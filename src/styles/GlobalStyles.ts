@@ -25,6 +25,10 @@ const GlobalStyles = createGlobalStyle`
     outline: 0;
     border: none;
   }
+
+  img {
+    object-fit: cover;
+  }
 `
 
 export default GlobalStyles
