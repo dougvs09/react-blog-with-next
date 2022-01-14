@@ -213,6 +213,10 @@ export const UserAvatar = styled.div`
 `
 
 export const LoginButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
   padding: 5px 20px;
   font: 600 14px 'Poppins', sans-serif;
   border-radius: 10px;
