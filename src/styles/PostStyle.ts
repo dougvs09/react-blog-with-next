@@ -39,12 +39,40 @@ export const PostInfo = styled.div`
 
 export const PostContent = styled.div`
   margin-top: 40px;
-  font: 500 20px/32px 'Poppins', sans-serif;
+  font: 400 20px/32px 'Source Sans Pro', sans-serif;
   align-self: center;
 
   color: ${({ theme }) => theme.colors.gray};
 
   p {
-    margin-bottom: 10px;
+    padding-bottom: 40px;
+  }
+`
+
+export const AuthorInfo = styled.div`
+  align-self: flex-start;
+
+  display: flex;
+  align-items: start;
+  gap: 20px;
+
+  margin-top: 50px;
+
+  img {
+    border-radius: 50%;
+    border: 3px solid white;
+  }
+
+  > div {
+    h3 {
+      font: 600 20px 'Poppins', sans-serif;
+      color: ${({ theme }) => theme.colors.primary};
+      padding-bottom: 20px;
+    }
+
+    p {
+      font: 16px 'Source Sans Pro', sans-serif;
+      color: ${({ theme }) => theme.colors.gray};
+    }
   }
 `
