@@ -1,10 +1,9 @@
 import { createContext } from 'react'
 
+import usePersistedTheme from '@hooks/usePersistedTheme'
+import dark from '@styles/themes/dark'
+import light from '@styles/themes/light'
 import { ThemeProvider } from 'styled-components'
-
-import usePersistedTheme from '../hooks/usePersistedTheme'
-import dark from '../styles/themes/dark'
-import light from '../styles/themes/light'
 
 type Theme = {
   title: string

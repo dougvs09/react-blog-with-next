@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import connect from '../../../services/mongodb'
-import getDate from '../../../utils/date'
+import connect from '@services/mongodb'
 
 type PostTypes = {
   content: string
@@ -35,7 +34,7 @@ export default async function handler(
       return
     }
 
-    const currentDate = getDate()
+    const currentDate = new Date()
 
     const { db } = await connect()
 

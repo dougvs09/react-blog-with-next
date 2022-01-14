@@ -1,4 +1,4 @@
-import { request } from '../services/datocms'
+import { request } from '@services/datocms'
 
 export const getAllPosts = async () => {
   const data = await request({
@@ -9,6 +9,7 @@ export const getAllPosts = async () => {
         title
         created
         id
+        tag
         image {
           url
           alt

@@ -3,10 +3,9 @@ import type { AppProps } from 'next/app'
 import Router from 'next/router'
 
 import '../styles/nprogress.css'
+import SwitchThemeContextProvider from '@contexts/SwitchThemeContext'
+import GlobalStyles from '@styles/GlobalStyles'
 import NProgress from 'nprogress'
-
-import SwitchThemeContextProvider from '../contexts/SwitchThemeContext'
-import GlobalStyles from '../styles/GlobalStyles'
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start()
