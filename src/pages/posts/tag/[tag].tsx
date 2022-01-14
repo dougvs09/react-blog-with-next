@@ -1,4 +1,5 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { useRouter } from 'next/router'
 
 import Footer from '@components/Footer'
 import Header from '@components/Header'
@@ -26,6 +27,12 @@ interface AllPostsTypes {
 }
 
 const PostTag: NextPage<AllPostsTypes> = ({ postsData }: AllPostsTypes) => {
+  const router = useRouter()
+
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
+
   return (
     <>
       <Header />
