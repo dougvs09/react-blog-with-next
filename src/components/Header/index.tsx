@@ -86,12 +86,12 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link href="/posts/tag/frontend">
                 <a className="link_hover">Front-end</a>
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link href="posts/tag/backend">
                 <a className="link_hover">Back-end</a>
               </Link>
             </li>
