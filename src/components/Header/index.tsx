@@ -91,7 +91,7 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link href="posts/tag/backend">
+              <Link href="/posts/tag/backend">
                 <a className="link_hover">Back-end</a>
               </Link>
             </li>
