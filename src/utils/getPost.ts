@@ -14,6 +14,14 @@ export const getPost = async (id: string | string[] | undefined) => {
           alt
         }
         ishighlighted
+        author {
+          name,
+          description
+          avatar {
+            url
+            alt
+          }
+        }
       }
     }`,
   })
