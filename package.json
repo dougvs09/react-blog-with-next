@@ -8,7 +8,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@styled-icons/boxicons-logos": "^10.38.0",
     "@styled-icons/material": "^10.34.0",
+    "add": "^2.0.6",
     "axios": "^0.24.0",
     "graphql": "^16.2.0",
     "graphql-request": "^3.7.0",
@@ -21,7 +23,8 @@
     "react-dom": "17.0.2",
     "react-markdown": "^7.1.2",
     "styled-components": "^5.3.3",
-    "tippy.js": "^6.3.7"
+    "tippy.js": "^6.3.7",
+    "yarn": "^1.22.17"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.0.8",
