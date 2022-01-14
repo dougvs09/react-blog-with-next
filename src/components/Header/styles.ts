@@ -191,7 +191,7 @@ export const Navigation = styled.div`
 export const NavigationRight = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 
   @media (max-width: 768px) {
     display: none;
