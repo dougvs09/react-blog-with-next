@@ -5,8 +5,10 @@ import { NextPage, GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
+import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import {
+  AuthorInfo,
   Banner,
   Container,
   PostContent,
@@ -27,6 +29,16 @@ type PostDataType = {
   category: string
   created: string
   ishighlighted: boolean
+  author: [
+    {
+      name: string
+      description: string
+      avatar: {
+        url: string
+        alt: string
+      }
+    }
+  ]
 }
 
 interface PostType {
@@ -36,37 +48,48 @@ interface PostType {
 const Post: NextPage<PostType> = ({ postData }: PostType) => {
   const router = useRouter()
 
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
+
   return (
-    <div>
-      {router.isFallback ? (
-        <div>Loading...</div>
-      ) : (
-        <Container>
-          <Header />
-          <main>
-            <Banner>
-              <Image
-                src={postData.image.url}
-                alt={postData.image.alt}
-                width={2000}
-                height={500}
-                loading="lazy"
-              />
-            </Banner>
-            <PostWrapper>
-              <h2>{postData.title}</h2>
-              <PostInfo>
-                <span>{postData.category}</span>
-                <span>{postData.created}</span>
-              </PostInfo>
-              <PostContent>
-                <ReactMarkdown children={postData.content} />
-              </PostContent>
-            </PostWrapper>
-          </main>
-        </Container>
-      )}
-    </div>
+    <Container>
+      <Header />
+      <main>
+        <Banner>
+          <Image
+            src={postData.image.url}
+            alt={postData.image.alt}
+            width={2000}
+            height={500}
+            loading="lazy"
+          />
+        </Banner>
+        <PostWrapper>
+          <h2>{postData.title}</h2>
+          <PostInfo>
+            <span>{postData.category}</span>
+            <span>{postData.created}</span>
+          </PostInfo>
+          <PostContent>
+            <ReactMarkdown children={postData.content} />
+          </PostContent>
+          <AuthorInfo>
+            <Image
+              src={postData.author[0].avatar.url}
+              alt="author avatar"
+              width={100}
+              height={100}
+            />
+            <div>
+              <h3>{postData.author[0].name}</h3>
+              <p>{postData.author[0].description}</p>
+            </div>
+          </AuthorInfo>
+        </PostWrapper>
+      </main>
+      <Footer />
+    </Container>
   )
 }
 
@@ -91,6 +114,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       postData,
     },
-    revalidate: 10,
+    revalidate: 60,
   }
 }
