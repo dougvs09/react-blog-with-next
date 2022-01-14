@@ -10,6 +10,7 @@ type Theme = {
   title: string
   colors: {
     primary: string
+    secondary: string
     backgroundDetails: string
     fontColor: string
     gray: string

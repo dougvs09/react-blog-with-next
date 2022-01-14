@@ -3,6 +3,7 @@ const dark = {
 
   colors: {
     primary: '#00D8FF',
+    secondary: '#28587B',
     background: '#111',
     fontColor: '#fff',
     gray: '#B4B4B4',
