@@ -41,16 +41,16 @@ const PostsCards: React.FC<PostCardType> = ({
     <ArticleContainer>
       <PostPicture>
         <Link href={`/posts/${path}`}>
-          <a></a>
+          <a>
+            <Image
+              src={postPicture}
+              alt={postPictureAlt}
+              width={370}
+              height={220}
+              loading="lazy"
+            />
+          </a>
         </Link>
-        <Image
-          src={postPicture}
-          alt={postPictureAlt}
-          width={370}
-          height={220}
-          loading="lazy"
-          unoptimized
-        />
         <Highlight data-tippy-content="Em destque">
           {isHighlighted && (
             <Link href={`/posts/${path}`}>
