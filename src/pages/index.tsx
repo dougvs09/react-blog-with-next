@@ -1,10 +1,10 @@
 import type { GetStaticProps, NextPage } from 'next'
 
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import PostsCards from '../components/PostsCards'
-import { Main, PostsWrapper, Separator } from '../styles/HomeStyle'
-import { getAllPosts } from '../utils/getAllPosts'
+import Footer from '@components/Footer'
+import Header from '@components/Header'
+import PostsCards from '@components/PostsCards'
+import { getAllPosts } from '@utils/getAllPosts'
+import styled from 'styled-components'
 
 type PostType = {
   id: string
@@ -14,6 +14,7 @@ type PostType = {
     url: string
     alt: string
   }
+  tag: string
   category: string
   created: string
   ishighlighted: boolean
@@ -82,3 +83,44 @@ export const getStaticProps: GetStaticProps = async () => {
     revalidate: 60,
   }
 }
+
+// STYLES
+const Main = styled.main`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`
+const PostsWrapper = styled.div`
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  margin: 0 auto;
+`
+
+const Separator = styled.div`
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  &:after,
+  &:before {
+    content: '';
+    width: 43.4%;
+    height: 2px;
+    background: ${({ theme }) => theme.colors.gray};
+    display: block;
+  }
+
+  p {
+    font: 600 14px 'Source Sans Pro', sans-serif;
+    color: ${({ theme }) => theme.colors.gray};
+    max-width: 115px;
+  }
+`
