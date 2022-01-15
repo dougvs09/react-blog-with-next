@@ -101,8 +101,6 @@ const PostsWrapper = styled.div`
 `
 
 const Separator = styled.div`
-  width: 1200px;
-  margin: 0 auto;
   padding: 20px 20px 10px 20px;
   display: flex;
   align-items: center;
@@ -112,7 +110,7 @@ const Separator = styled.div`
   &:after,
   &:before {
     content: '';
-    width: 43.4%;
+    width: 31%;
     height: 2px;
     background: ${({ theme }) => theme.colors.gray};
     display: block;
@@ -122,5 +120,12 @@ const Separator = styled.div`
     font: 600 14px 'Source Sans Pro', sans-serif;
     color: ${({ theme }) => theme.colors.gray};
     max-width: 115px;
+  }
+
+  @media (max-width: 440px) {
+    &:after,
+    &:before {
+      width: 20%;
+    }
   }
 `

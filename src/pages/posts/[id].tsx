@@ -67,7 +67,27 @@ const Post: NextPage<PostType> = ({ postData }: PostType) => {
             <span>{postData.created}</span>
           </PostInfo>
           <PostContent>
-            <ReactMarkdown children={postData.content} />
+            <div>
+              <ReactMarkdown children={postData.content} />
+            </div>
+            <Medias>
+              <ul>
+                <li>
+                  <a
+                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://react-blog-with-next.vercel.app/posts/${postData.id}`}
+                  >
+                    <LinkedinIcon />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`https://www.facebook.com/sharer/sharer.php?u=https://react-blog-with-next.vercel.app/posts/${postData.id}`}
+                  >
+                    <FacebookIcon />
+                  </a>
+                </li>
+              </ul>
+            </Medias>
           </PostContent>
           <AuthorInfo>
             <Image
@@ -82,24 +102,6 @@ const Post: NextPage<PostType> = ({ postData }: PostType) => {
             </div>
           </AuthorInfo>
         </PostWrapper>
-        <Medias>
-          <ul>
-            <li>
-              <a
-                href={`https://www.linkedin.com/shareArticle?mini=true&url=https://react-blog-with-next.vercel.app/posts/${postData.id}`}
-              >
-                <LinkedinIcon />
-              </a>
-            </li>
-            <li>
-              <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=https://react-blog-with-next.vercel.app/posts/${postData.id}`}
-              >
-                <FacebookIcon />
-              </a>
-            </li>
-          </ul>
-        </Medias>
       </main>
       <Footer />
     </Container>
@@ -139,14 +141,9 @@ const Container = styled.div`
 
 const Banner = styled.div`
   width: 100%;
-  height: 400px;
 `
 
 const Medias = styled.div`
-  position: absolute;
-  top: 550px;
-  right: 180px;
-
   ul {
     display: flex;
     flex-direction: column;
@@ -167,6 +164,17 @@ const Medias = styled.div`
       }
     }
   }
+
+  @media (max-width: 700px) {
+    ul {
+      flex-direction: row;
+      align-self: center;
+
+      li {
+        padding-top: 7px;
+      }
+    }
+  }
 `
 
 const PostWrapper = styled.div`
@@ -183,6 +191,12 @@ const PostWrapper = styled.div`
     color: ${({ theme }) => theme.colors.gray};
     margin: 20px 0;
   }
+
+  @media (max-width: 380px) {
+    h2 {
+      font-size: 24px;
+    }
+  }
 `
 const PostInfo = styled.div`
   display: flex;
@@ -194,17 +208,31 @@ const PostInfo = styled.div`
     color: ${({ theme }) => theme.colors.primary};
     text-transform: uppercase;
   }
+
+  @media (max-width: 380px) {
+    span {
+      font-size: 12px;
+    }
+  }
 `
 
 const PostContent = styled.div`
   margin-top: 40px;
-  font: 400 20px/32px 'Source Sans Pro', sans-serif;
+  font: 400 20px/30px 'Source Sans Pro', sans-serif;
   align-self: center;
+  display: flex;
+  gap: 30px;
 
   color: ${({ theme }) => theme.colors.gray};
 
   p {
     padding-bottom: 40px;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    font-size: 18px;
+    line-height: 27px;
   }
 `
 
@@ -232,6 +260,18 @@ const AuthorInfo = styled.div`
     p {
       font: 16px 'Source Sans Pro', sans-serif;
       color: ${({ theme }) => theme.colors.gray};
+    }
+  }
+
+  @media (max-width: 400px) {
+    > div {
+      h3 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 12px;
+      }
     }
   }
 `

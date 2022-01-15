@@ -26,6 +26,14 @@ export const PostPicture = styled.div`
   position: relative;
 
   cursor: pointer;
+
+  @media (max-width: 390px) {
+    height: 200px;
+  }
+
+  @media (max-width: 340px) {
+    height: 180px;
+  }
 `
 
 export const PostInformations = styled.div`
@@ -55,6 +63,10 @@ export const PostInformations = styled.div`
         color: ${({ theme }) => theme.colors.gray};
       }
     }
+  }
+
+  @media (max-width: 340px) {
+    padding-top: 0;
   }
 `
 

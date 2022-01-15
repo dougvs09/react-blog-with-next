@@ -35,7 +35,9 @@ const Header: React.FC = () => {
   const { data: session } = useSession()
 
   useEffect(() => {
-    tippy('[data-tippy-content]')
+    tippy('[data-tippy-content]', {
+      touch: ['hold', 500],
+    })
   }, [])
 
   const handleOpenMenu = () => {
@@ -59,7 +61,7 @@ const Header: React.FC = () => {
         <LogoMobile>
           <Link href="/">
             <a className="logo_mobile">
-              <Image src={reactIcon} alt="blog icon" width={25} height={30} />
+              <Image src={reactIcon} alt="blog icon" width={35} height={30} />
               <p>Blog</p>
             </a>
           </Link>
@@ -78,8 +80,8 @@ const Header: React.FC = () => {
                   <Image
                     src={reactIcon}
                     alt="blog icon"
-                    width={30}
-                    height={25}
+                    width={35}
+                    height={30}
                   />
                   <p>Blog</p>
                 </a>
