@@ -4,6 +4,11 @@
     "es2021": true,
     "node": true
   },
+  "settings": {
+    "react": {
+      "version": "latest"
+    }
+  },
   "extends": [
     "plugin:react/recommended",
     "standard",
@@ -28,7 +33,7 @@
     "react/react-in-jsx-scope": "off",
     "import-helpers/order-imports": [
       "warn",
-      { // example configuration
+      {
         "newlinesBetween": "always",
         "groups": [
           "/^react/",
