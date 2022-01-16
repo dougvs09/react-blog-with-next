@@ -36,7 +36,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     tippy('[data-tippy-content]', {
-      touch: ['hold', 500],
+      touch: 'hold',
     })
   }, [])
 
