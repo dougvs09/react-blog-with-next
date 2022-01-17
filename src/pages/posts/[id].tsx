@@ -2,6 +2,7 @@
 import ReactMarkdown from 'react-markdown'
 
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next'
+import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
@@ -49,6 +50,24 @@ const Post: NextPage<PostType> = ({ postData }: PostType) => {
 
   return (
     <Container>
+      <Head>
+        <title>{postData.title}</title>
+        <link rel="shortcut icon" href="/react.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="React Blog é onde você encontra tudo sobre o mundo da programação"
+        />
+        <meta property="og:title" content={postData.title} key="ogtitle" />
+        <meta
+          property="og:url"
+          content={`https://react-blog-with-next.vercel.app${router.asPath}`}
+          key="ogurl"
+        />
+        <meta property="og:image" content={postData.image.url} key="ogimage" />
+        <meta property="og:site_name" content="React Blog" key="ogsitename" />
+      </Head>
       <Header />
       <main>
         <Banner>

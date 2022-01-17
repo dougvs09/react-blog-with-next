@@ -1,10 +1,13 @@
 import type { GetStaticProps, NextPage } from 'next'
+import Head from 'next/head'
 
 import Footer from '@components/Footer'
 import Header from '@components/Header'
 import PostsCards from '@components/PostsCards'
 import { getAllPosts } from '@utils/getAllPosts'
 import styled from 'styled-components'
+
+import reactIcon from '../../public/react.svg'
 
 type PostType = {
   id: string
@@ -27,6 +30,28 @@ interface AllPostsTypes {
 const Home: NextPage<AllPostsTypes> = ({ postsData }: AllPostsTypes) => {
   return (
     <>
+      <Head>
+        <title>React Blog - O Blog sobre programção</title>
+        <link rel="shortcut icon" href="/react.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="React Blog é onde você encontra tudo sobre o mundo da programação"
+        />
+        <meta
+          property="og:title"
+          content="React Blog - O Blog sobre programção"
+          key="ogtitle"
+        />
+        <meta
+          property="og:url"
+          content="https://react-blog-with-next.vercel.app"
+          key="ogurl"
+        />
+        <meta property="og:image" content={reactIcon} key="ogimage" />
+        <meta property="og:site_name" content="React Blog" key="ogsitename" />
+      </Head>
       <Header />
       <Main>
         <Separator>

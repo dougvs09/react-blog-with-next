@@ -1,4 +1,5 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import Footer from '@components/Footer'
@@ -7,6 +8,8 @@ import PostsCards from '@components/PostsCards'
 import { getAllPosts } from '@utils/getAllPosts'
 import { getPostsPerTag } from '@utils/getPostsPerTag'
 import styled from 'styled-components'
+
+import reactIcon from '../../../../public/react.svg'
 
 type PostType = {
   id: string
@@ -33,8 +36,33 @@ const PostTag: NextPage<AllPostsTypes> = ({ postsData }: AllPostsTypes) => {
     return <div>Loading...</div>
   }
 
+  const tag = postsData.map((data) => data.tag)
+  const title = tag[0].charAt(0).toUpperCase() + tag[0].substring(1)
+
   return (
     <>
+      <Head>
+        <title>React Blog - {title} posts</title>
+        <link rel="shortcut icon" href="/react.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="React Blog é onde você encontra tudo sobre o mundo da programação"
+        />
+        <meta
+          property="og:title"
+          content="React Blog - {title} posts"
+          key="ogtitle"
+        />
+        <meta
+          property="og:url"
+          content={`https://react-blog-with-next.vercel.app${router.asPath}`}
+          key="ogurl"
+        />
+        <meta property="og:image" content={reactIcon} key="ogimage" />
+        <meta property="og:site_name" content="React Blog" key="ogsitename" />
+      </Head>
       <Header />
       <Main>
         <PostsWrapper>
