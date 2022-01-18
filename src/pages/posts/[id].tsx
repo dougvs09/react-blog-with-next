@@ -86,7 +86,7 @@ const Post: NextPage<PostType> = ({ postData }: PostType) => {
             <span>{postData.created}</span>
           </PostInfo>
           <PostContent>
-            <div>
+            <div className="content">
               <ReactMarkdown children={postData.content} />
             </div>
             <Medias>
@@ -163,16 +163,17 @@ const Banner = styled.div`
 `
 
 const Medias = styled.div`
-  ul {
+  > ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 
-    li {
+    > li {
       border-radius: 50%;
       border: 2px solid ${({ theme }) => theme.colors.gray};
       padding: 3px 6px 6px 6px;
+      list-style: none;
 
       transition: 0.4s;
 
@@ -244,8 +245,26 @@ const PostContent = styled.div`
 
   color: ${({ theme }) => theme.colors.gray};
 
-  p {
-    padding-bottom: 40px;
+  div {
+    &.content {
+      h1 {
+        font: 600 24px/32px 'Poppins', sans-serif;
+        color: ${({ theme }) => theme.colors.primary};
+        padding-bottom: 10px;
+      }
+
+      > ul {
+        padding-bottom: 10px;
+
+        li {
+          list-style: disc;
+        }
+      }
+
+      p {
+        padding-bottom: 40px;
+      }
+    }
   }
 
   @media (max-width: 700px) {
