@@ -76,7 +76,6 @@ const Post: NextPage<PostType> = ({ postData }: PostType) => {
             alt={postData.image.alt}
             width={2000}
             height={500}
-            loading="lazy"
           />
         </Banner>
         <PostWrapper>

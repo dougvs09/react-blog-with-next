@@ -4,8 +4,10 @@ import { useSession, signIn, signOut } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import tippy from 'tippy.js'
+import tippy, { animateFill } from 'tippy.js'
 import 'tippy.js/dist/tippy.css'
+import 'tippy.js/dist/backdrop.css';
+import 'tippy.js/animations/shift-away.css';
 
 import reactIcon from '../../../public/react.svg'
 import useTheme from '../../hooks/useTheme'
@@ -36,7 +38,9 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     tippy('[data-tippy-content]', {
-      touch: 'hold',
+      touch: ['hold', 2000],
+      animateFill: true,
+      plugins: [ animateFill ]
     })
   }, [])
 

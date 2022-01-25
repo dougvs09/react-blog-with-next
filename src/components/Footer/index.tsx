@@ -12,12 +12,12 @@ const Footer: React.FC = () => {
       <Wrapper>
         <Medias>
           <li>
-            <a href="">
+            <a href="https://twitter.com/its_easy1">
               <TwitterIcon />
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="https://github.com/dougvs09">
               <GithubIcon />
             </a>
           </li>
