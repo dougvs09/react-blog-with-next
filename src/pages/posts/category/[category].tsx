@@ -6,7 +6,7 @@ import Footer from '@components/Footer'
 import Header from '@components/Header'
 import PostsCards from '@components/PostsCards'
 import { getAllPosts } from '@utils/getAllPosts'
-import { getPostsPerTag } from '@utils/getPostsPerTag'
+import { getPostsPerCategory } from '@utils/getPostsPerTag'
 import styled from 'styled-components'
 
 import reactIcon from '../../../../public/react.svg'
@@ -99,7 +99,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postsData = await getPostsPerTag(params?.category)
+  const postsData = await getPostsPerCategory(params?.category)
 
   return {
     props: {
