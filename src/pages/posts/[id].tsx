@@ -268,6 +268,16 @@ const PostContent = styled.div`
         padding-bottom: 40px;
       }
 
+      img {
+        width: 100%;
+        margin-top: 40px;
+        border-radius: 10px;
+      }
+
+      a {
+        color: ${({ theme }) => theme.colors.primary};
+      }
+
       @media (max-width: 380px) {
         h1 {
           font-size: 18px;
