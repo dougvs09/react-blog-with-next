@@ -1,9 +1,9 @@
 import { request } from '@services/datocms'
 
-export const getPostsPerTag = async (tag: string | string[] | undefined) => {
+export const getPostsPerTag = async (category: string | string[] | undefined) => {
   const data = await request({
     query: `query {
-      allPosts(filter: {tag: {eq: ${tag}}}) {
+      allPosts(filter: {category: {eq: ${category}}}) {
 		    category
         content
         title

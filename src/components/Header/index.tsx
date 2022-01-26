@@ -92,12 +92,12 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link href="/posts/tag/next">
+              <Link href="/posts/category/next">
                 <a className="link_hover">Next</a>
               </Link>
             </li>
             <li>
-              <Link href="/posts/tag/react">
+              <Link href="/posts/category/react">
                 <a className="link_hover">React</a>
               </Link>
             </li>

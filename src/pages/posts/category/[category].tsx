@@ -35,8 +35,8 @@ const PostCategory: NextPage<AllPostsTypes> = ({ postsData }: AllPostsTypes) => 
     return <div>Loading...</div>
   }
 
-  const tag = postsData.map((data) => data.category)
-  const title = tag[0].charAt(0).toUpperCase() + tag[0].substring(1)
+  const category = postsData.map((data) => data.category)
+  const title = category[0].charAt(0).toUpperCase() + category[0].substring(1)
 
   return (
     <>
