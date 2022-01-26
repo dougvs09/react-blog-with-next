@@ -97,8 +97,8 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link href="/posts/category/react">
-                <a className="link_hover">React</a>
+              <Link href="/posts/category/blog">
+                <a className="link_hover">Blog</a>
               </Link>
             </li>
           </ul>
