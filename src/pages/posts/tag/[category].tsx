@@ -28,7 +28,7 @@ interface AllPostsTypes {
   postsData: PostType[]
 }
 
-const PostTag: NextPage<AllPostsTypes> = ({ postsData }: AllPostsTypes) => {
+const PostCategory: NextPage<AllPostsTypes> = ({ postsData }: AllPostsTypes) => {
   const router = useRouter()
 
   if (router.isFallback) {
@@ -84,12 +84,12 @@ const PostTag: NextPage<AllPostsTypes> = ({ postsData }: AllPostsTypes) => {
   )
 }
 
-export default PostTag
+export default PostCategory
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const postsData = await getAllPosts()
   const paths = postsData.map((data: PostType) => ({
-    params: { tag: data.category },
+    params: { category: data.category },
   }))
 
   return {
