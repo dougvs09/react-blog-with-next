@@ -3,8 +3,10 @@ import { useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import tippy from 'tippy.js'
+import tippy, { animateFill } from 'tippy.js'
 import 'tippy.js/dist/tippy.css'
+import 'tippy.js/dist/backdrop.css';
+import 'tippy.js/animations/shift-away.css';
 
 import {
   ArticleContainer,
@@ -34,7 +36,11 @@ const PostsCards: React.FC<PostCardType> = ({
   postPictureAlt,
 }: PostCardType) => {
   useEffect(() => {
-    tippy('[data-tippy-content]')
+      tippy('[data-tippy-content]', {
+        touch: false,
+        animateFill: true,
+        plugins: [ animateFill ]
+      })
   }, [])
 
   return (
@@ -47,7 +53,8 @@ const PostsCards: React.FC<PostCardType> = ({
               alt={postPictureAlt}
               width={370}
               height={220}
-              loading="lazy"
+              blurDataURL={postPicture}
+              placeholder="blur"
             />
           </a>
         </Link>

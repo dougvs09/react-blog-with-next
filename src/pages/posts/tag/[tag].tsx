@@ -22,7 +22,6 @@ type PostType = {
   category: string
   created: string
   ishighlighted: boolean
-  tag: string
 }
 
 interface AllPostsTypes {
@@ -36,7 +35,7 @@ const PostTag: NextPage<AllPostsTypes> = ({ postsData }: AllPostsTypes) => {
     return <div>Loading...</div>
   }
 
-  const tag = postsData.map((data) => data.tag)
+  const tag = postsData.map((data) => data.category)
   const title = tag[0].charAt(0).toUpperCase() + tag[0].substring(1)
 
   return (
@@ -90,7 +89,7 @@ export default PostTag
 export const getStaticPaths: GetStaticPaths = async () => {
   const postsData = await getAllPosts()
   const paths = postsData.map((data: PostType) => ({
-    params: { tag: data.tag },
+    params: { tag: data.category },
   }))
 
   return {
@@ -100,7 +99,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postsData = await getPostsPerTag(params?.tag)
+  const postsData = await getPostsPerTag(params?.category)
 
   return {
     props: {

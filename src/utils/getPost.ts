@@ -9,7 +9,6 @@ export const getPost = async (id: string | string[] | undefined) => {
         title
         id
         created
-        tag
         image {
           url
           alt

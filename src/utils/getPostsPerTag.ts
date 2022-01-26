@@ -14,7 +14,6 @@ export const getPostsPerTag = async (tag: string | string[] | undefined) => {
           alt
         }
         ishighlighted
-        tag
       }
     }`,
   })

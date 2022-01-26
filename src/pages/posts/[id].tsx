@@ -76,6 +76,8 @@ const Post: NextPage<PostType> = ({ postData }: PostType) => {
             alt={postData.image.alt}
             width={2000}
             height={500}
+            blurDataURL={postData.image.url}
+            placeholder="blur"
           />
         </Banner>
         <PostWrapper>
@@ -85,9 +87,9 @@ const Post: NextPage<PostType> = ({ postData }: PostType) => {
             <span>{postData.created}</span>
           </PostInfo>
           <PostContent>
-            <div className="content">
+            <article className="content">
               <ReactMarkdown children={postData.content} />
-            </div>
+            </article>
             <Medias>
               <ul>
                 <li>
@@ -113,6 +115,8 @@ const Post: NextPage<PostType> = ({ postData }: PostType) => {
               alt="author avatar"
               width={100}
               height={100}
+              blurDataURL={postData.author[0].avatar.url}
+              placeholder="blur"
             />
             <div>
               <h3>{postData.author[0].name}</h3>
@@ -213,7 +217,7 @@ const PostWrapper = styled.div`
 
   @media (max-width: 380px) {
     h2 {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
 `
@@ -244,7 +248,7 @@ const PostContent = styled.div`
 
   color: ${({ theme }) => theme.colors.gray};
 
-  div {
+  article {
     &.content {
       h1 {
         font: 600 24px/32px 'Poppins', sans-serif;
@@ -253,7 +257,7 @@ const PostContent = styled.div`
       }
 
       > ul {
-        padding-bottom: 10px;
+        padding: 0 0 10px 20px;
 
         li {
           list-style: disc;
@@ -262,6 +266,22 @@ const PostContent = styled.div`
 
       p {
         padding-bottom: 40px;
+      }
+
+      @media (max-width: 380px) {
+        h1 {
+          font-size: 18px;
+        }
+
+        p {
+          font-size: 16px;
+        }
+
+        ul {
+          li {
+            font-size: 16px;
+          }
+        }
       }
     }
   }

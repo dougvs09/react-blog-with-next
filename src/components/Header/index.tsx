@@ -38,7 +38,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     tippy('[data-tippy-content]', {
-      touch: ['hold', 2000],
+      touch: false,
       animateFill: true,
       plugins: [ animateFill ]
     })
@@ -64,8 +64,8 @@ const Header: React.FC = () => {
         </MobileMenuButton>
         <LogoMobile>
           <Link href="/">
-            <a className="logo_mobile">
-              <Image src={reactIcon} alt="blog icon" width={35} height={30} />
+            <a className="logo_mobile" >
+              <Image src={reactIcon} alt="react icon" width={35} height={30} />
               <p>Blog</p>
             </a>
           </Link>
@@ -92,13 +92,13 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link href="/posts/tag/frontend">
-                <a className="link_hover">Front-end</a>
+              <Link href="/posts/tag/next">
+                <a className="link_hover">Next</a>
               </Link>
             </li>
             <li>
-              <Link href="/posts/tag/backend">
-                <a className="link_hover">Back-end</a>
+              <Link href="/posts/tag/react">
+                <a className="link_hover">React</a>
               </Link>
             </li>
           </ul>
