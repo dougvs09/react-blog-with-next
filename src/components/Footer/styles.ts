@@ -1,4 +1,4 @@
-import { Twitter, Github } from '@styled-icons/boxicons-logos'
+import { Linkedin, Github } from '@styled-icons/boxicons-logos'
 import styled from 'styled-components'
 
 export const FooterContainer = styled.footer`
@@ -29,7 +29,7 @@ export const Medias = styled.ul`
   gap: 10px;
 `
 
-export const TwitterIcon = styled(Twitter)`
+export const LinkedinIcon = styled(Linkedin)`
   width: 30px;
   height: 30px;
   color: ${({ theme }) => theme.colors.background};

@@ -2,7 +2,7 @@ import {
   FooterContainer,
   GithubIcon,
   Medias,
-  TwitterIcon,
+  LinkedinIcon,
   Wrapper,
 } from './styles'
 
@@ -12,8 +12,8 @@ const Footer: React.FC = () => {
       <Wrapper>
         <Medias>
           <li>
-            <a href="https://twitter.com/its_easy1">
-              <TwitterIcon />
+            <a href="https://www.linkedin.com/in/douglasvalente09/">
+              <LinkedinIcon />
             </a>
           </li>
           <li>
@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
             </a>
           </li>
         </Medias>
-        <span>React Blog&copy; Todos os direitos reservados</span>
+        <span>Frontend Blog Blog&copy; Todos os direitos reservados</span>
       </Wrapper>
     </FooterContainer>
   )
